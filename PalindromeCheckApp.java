@@ -7,19 +7,27 @@ public class PalindromeCheckApp {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        System.out.print("Input text: ");
+        System.out.print("Enter the string: ");
         String input = sc.nextLine();
 
+        // Convert string to character array
+        char[] chars = input.toCharArray();
+
         boolean isPalindrome = true;
-        int n = input.length() - 1;
 
-        for (int i = 0; i <= n; i++) {
+        int start = 0;
+        int end = chars.length - 1;
 
-            if (input.charAt(i) != input.charAt(n - i)) {
+        // Two pointer comparison
+        while (start < end) {
+
+            if (chars[start] != chars[end]) {
                 isPalindrome = false;
                 break;
             }
 
+            start++;
+            end--;
         }
 
         if (isPalindrome) {
